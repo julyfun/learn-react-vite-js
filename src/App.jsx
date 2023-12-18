@@ -1,7 +1,12 @@
+import { Button } from 'antd'
+
 function App() {
-    return <div className="App">
-        <h1>Vite React App</h1>
-    </div>
+    return (
+        <div>
+            <h1>Vite-React-App</h1>
+            <Button type="primary">Button</Button>
+        </div>
+    )
 }
 
 
