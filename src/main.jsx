@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from '@/App'
+import App from '@/pages/login'
 import '@/common/styles/frame.styl'
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/es/locale/zh_CN'
