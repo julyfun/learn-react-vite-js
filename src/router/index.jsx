@@ -12,6 +12,8 @@ export const globalRouters = createHashRouter([
         element: <Login />,
     },
     {
+        // 啥玩意这里为啥直接 / 啊
+        // 而且改成 /entry 之后还会炸
         path: '/',
         element: <Entry />,
         children: [
