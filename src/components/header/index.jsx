@@ -4,7 +4,8 @@ import { HomeOutlined, UserOutlined } from '@ant-design/icons'
 import { useLocation, useNavigate } from 'react-router-dom'
 import './header.styl'
 
-function Header() {
+// 这个可以直接作为 <Header> 这样的 html 存在
+function Header(props) {
     // 创建路由钩子
     const location = useLocation()
     const navigate = useNavigate()
@@ -22,10 +23,13 @@ function Header() {
             onClick: () => { navigate('/account') },
         }
     ]
+    // 接收来自父组件的数据
+    const { title, info } = props
+    info && info() // 如果 info 存在就执行 info()
     return (
         <Card className="M-header">
             <div className="header-wrapper">
-                <div className="logo-con">Header</div>
+                <div className="logo-con">Header:{title}</div>
                 <div className="menu-con">
                     <Menu
                         mode="horizontal"
