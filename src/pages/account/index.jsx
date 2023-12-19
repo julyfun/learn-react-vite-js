@@ -6,7 +6,7 @@ function Account() {
         <div className="P-account">
             <h1>Account Page</h1>
             <div className='ipt-con'>
-                <Button type="primary">返回登录</Button>
+                <Button type="primary" onClick={() => { navigate('/login') }}>返回登录</Button>
             </div>
         </div>
     )
