@@ -5,6 +5,7 @@ export const globalConfig = {
         // 与下方数组中某个下标对应
         colorPrimary: null,
     },
+    // 6 个共同作用
     customColorPrimaries: [
         '#1677ff',
         '#f5222d',

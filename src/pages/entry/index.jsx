@@ -17,6 +17,13 @@ function Entry() {
         // 为啥 globalTheme 有 dark 这个属性
         algorithm: globalTheme.dark ? darkAlgorithm : defaultAlgorithm,
     }
+    // 应用自定义主题色
+    // 谁设置的？theme.jsx 中的函数操作了 store
+    if (globalTheme.colorPrimary) {
+        antdTheme.token = {
+            colorPrimary: globalTheme.colorPrimary,
+        }
+    }
     // 为二级路由页面挖好的坑
 
     return (
