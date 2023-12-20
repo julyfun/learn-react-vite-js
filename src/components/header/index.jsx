@@ -35,6 +35,7 @@ function Header(props) {
     const { title, info } = props
     info && info() // 如果 info 存在就执行 info()
     return (
+        // 这是 antd 的 Card，包裹在里面的组件可以换肤
         <Card className="M-header">
             <div className="header-wrapper">
                 <div className="logo-con">Header:{title}</div>

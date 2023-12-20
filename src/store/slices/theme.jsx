@@ -23,6 +23,7 @@ export const themeSlice = createSlice({
         // 从哪里接收的 state & action ?
         setDark: (state, action) => {
             // store 分库里的 dark 值进行修改 - 全项目动态生效
+            // 这里的 dark 就是上面 initlState 里的 dark
             state.dark = action.payload
             // 长久保存主题配置
             // localStorage 没有用 cookie 能保存很久吗？
