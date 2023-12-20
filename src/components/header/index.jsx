@@ -1,9 +1,13 @@
+// 导航横幅
+import { useState } from 'react'
 import { Button, Card, Menu } from 'antd'
 import { MoonOutlined, ThemeOutlined, SunOutlined } from '@/components/extraIcons'
 import { HomeOutlined, UserOutlined } from '@ant-design/icons'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { setDark } from '@/store/slices/theme'
+import ThemeModal from '@/components/themeModal'
+import { globalConfig } from '@/globalConfig'
 import './header.styl'
 
 // 这个可以直接作为 <Header> 这样的 html 存在
@@ -34,6 +38,8 @@ function Header(props) {
     // 接收来自父组件的数据
     const { title, info } = props
     info && info() // 如果 info 存在就执行 info()
+    // 绑定 bool 变量和对应的函数
+    const [showThemeModal, setShowThemeModal] = useState(false)
     return (
         // 这是 antd 的 Card，包裹在里面的组件可以换肤
         <Card className="M-header">
@@ -66,9 +72,34 @@ function Header(props) {
                             }}
                         ></Button>
                     )}
-                    <Button icon={<ThemeOutlined />} shape="circle"></Button>
+                    {
+                        // 有配置时才显示换肤按钮
+                        globalConfig.customColorPrimaries &&
+                        globalConfig.customColorPrimaries.length > 0 &&
+                        (
+                            <Button
+                                icon={<ThemeOutlined />}
+                                shape="circle"
+                                onClick={() => {
+                                    setShowThemeModal(true)
+                                }}
+                            ></Button>
+                        )
+                    }
                 </div>
             </div>
+            {
+                // 显示对话框
+                showThemeModal && (
+                    <ThemeModal
+                        onClose={
+                            () => {
+                                setShowThemeModal(false)
+                            }
+                        }
+                    />
+                )
+            }
         </Card>
     )
 }
