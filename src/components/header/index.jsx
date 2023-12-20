@@ -46,6 +46,8 @@ function Header(props) {
                         selectedKeys={[location.pathname]}
                         items={menuItems}
                     />
+                </div>
+                <div className="opt-con">
                     {theme.dark ? (
                         <Button
                             icon={<SunOutlined />}
@@ -62,8 +64,7 @@ function Header(props) {
                                 dispatch(setDark(true))
                             }}
                         ></Button>
-                    )}           </div>
-                <div className="opt-con">
+                    )}
                     <Button icon={<ThemeOutlined />} shape="circle"></Button>
                 </div>
             </div>
