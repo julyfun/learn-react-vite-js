@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { globalConfig } from '@/globalConfig'
 import { theme } from 'antd'
 
+// 试图从本地存储中获取主题配置
 const sessionTheme = JSON.parse(window.localStorage.getItem(globalConfig.SESSION_LOGIN_THEME))
 
 const initTheme = sessionTheme ? sessionTheme : globalConfig.initTheme
@@ -43,6 +44,9 @@ export const themeSlice = createSlice({
 })
 
 // 这玩意为啥能从上面那里拿过来导出啊？
+// 哦不是从上面导出的，这里似乎是新定义了一个名字而已
+// 可以让组件直接使用 setDark 方法来设置主题，而不需要自己构造 action 对象。
+// i'm not sure
 export const { setDark } = themeSlice.actions
 export const { setColorPrimary } = themeSlice.actions
 
